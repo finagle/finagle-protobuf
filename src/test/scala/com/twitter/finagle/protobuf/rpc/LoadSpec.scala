@@ -1,5 +1,19 @@
 package com.twitter.finagle.protobuf.rpc
 
+import org.specs.SpecificationWithJUnit
+import org.specs.mock.Mockito
+
+import org.junit.Assert._
+
+import com.google.protobuf._
+import com.google.common.base._
+
+import com.twitter.util._
+import com.twitter.finagle.protobuf.rpc._
+import com.twitter.finagle.protobuf.rpc.impl._
+
+import com.twitter.finagle.protobuf.rpc.SampleServiceProtos._
+import com.twitter.finagle.builder._
 
 import java.util.concurrent._
 import java.util.concurrent.atomic._
