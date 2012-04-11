@@ -1,6 +1,15 @@
 package com.twitter.finagle.protobuf.rpc
 
+import org.specs.SpecificationWithJUnit
+import org.specs.mock.Mockito
 
+import org.junit.Assert._
+
+import java.util.List
+
+import org.junit.Test
+
+import com.google.common.collect.Lists
 import com.twitter.finagle.protobuf.rpc.channel.SimpleMethodLookup
 
 object SimpleMethodLookupSpec extends SpecificationWithJUnit {
