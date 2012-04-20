@@ -31,5 +31,4 @@ class RpcChannelImpl(cb: ClientBuilder[(String, Message), (String, Message), Any
   def release() {
      client.close()
   }
-
 }
