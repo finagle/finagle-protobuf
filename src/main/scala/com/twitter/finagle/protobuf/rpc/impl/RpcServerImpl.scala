@@ -7,8 +7,12 @@ import com.twitter.finagle.protobuf.rpc.RpcServer
 import java.net.InetSocketAddress
 import java.util.concurrent.ExecutorService
 
+import com.google.common.base.Preconditions
+
 class RpcServerImpl(sb: ServerBuilder[(String, Message), (String, Message), Any, Any, Any], port: Int, service: Service, executorService: ExecutorService) extends RpcServer {
 
+  Preconditions.checkNotNull(executorService)
+  
   private val futurePool = FuturePool(executorService)
 
   private val server: Server = ServerBuilder.safeBuild(ServiceDispatcher(service, futurePool),
