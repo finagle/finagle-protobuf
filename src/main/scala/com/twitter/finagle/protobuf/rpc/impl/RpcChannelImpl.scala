@@ -3,6 +3,8 @@ package com.twitter.finagle.protobuf.rpc.impl
 import java.util.concurrent.ExecutorService
 import com.twitter.finagle.protobuf.rpc.RpcControllerWithOnFailureCallback
 import com.twitter.finagle.protobuf.rpc.channel.ProtoBufCodec
+import com.twitter.finagle.ChannelClosedException
+import com.twitter.finagle.protobuf.rpc.Util
 
 class RpcChannelImpl(cb: ClientBuilder[(String, Message), (String, Message), Any, Any, Any], s: Service, executorService: ExecutorService) extends RpcChannel {
 
@@ -18,10 +20,12 @@ class RpcChannelImpl(cb: ClientBuilder[(String, Message), (String, Message), Any
     request: Message, responsePrototype: Message,
     done: RpcCallback[Message]): Unit = {
 
+    Util.log(m.getName(), request)
     val req = (m.getName(), request)
 
     client(req) onSuccess { result =>
-      futurePool({done.run(result._2)})
+      Util.log(m.getName(), result._2)
+      futurePool({ done.run(result._2) })
     } onFailure { e =>
       log.warn("Failed. ", e)
       controller.asInstanceOf[RpcControllerWithOnFailureCallback].setFailed(e)
