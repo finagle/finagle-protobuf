@@ -8,9 +8,9 @@ package com.twitter.finagle.protobuf.rpc.channel
  * ==============
  *
  * Offset: 0             4                8
- *         +-------------+----------------+------------------+
- *         | method code | message length | protobuf message |
- *         +-------------+----------------+------------------+
+ * +-------------+----------------+------------------+
+ * | method code | message length | protobuf message |
+ * +-------------+----------------+------------------+
  *
  *
  */
