@@ -1,7 +1,6 @@
 package com.twitter.finagle.protobuf.rpc
 
-import org.specs.SpecificationWithJUnit
-import org.specs.mock.Mockito
+import org.specs2.mutable.SpecificationWithJUnit
 
 import org.junit.Assert._
 
@@ -24,7 +23,7 @@ import scala.collection.mutable._
 
 import com.twitter.finagle.protobuf.rpc.ServiceExceptionHandler
 
-object RpcProtobufSpec extends org.specs.SpecificationWithJUnit {
+object RpcProtobufSpec extends SpecificationWithJUnit {
 
   def CLIENT_TIMEOUT_SECONDS = 1
 

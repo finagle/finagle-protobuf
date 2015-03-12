@@ -1782,92 +1782,18 @@ public final class SampleServiceProtos {
                 temp_ = 0;
                 onChanged();
                 return this;
-              }
-              break;
             }
-            case 10: {
-              bitField0_ |= 0x00000001;
-              zip_ = input.readBytes();
-              break;
-            }
-            case 16: {
-              bitField0_ |= 0x00000002;
-              temp_ = input.readUInt32();
-              break;
-            }
-          }
+
+            // @@protoc_insertion_point(builder_scope:com.twitter.finagle.protobuf.rpc.GetHistoricWeatherResponse)
         }
-      }
-      
-      private int bitField0_;
-      
-      // optional string zip = 1;
-      private java.lang.Object zip_ = "";
-      public boolean hasZip() {
-        return ((bitField0_ & 0x00000001) == 0x00000001);
-      }
-      public String getZip() {
-        java.lang.Object ref = zip_;
-        if (!(ref instanceof String)) {
-          String s = ((com.google.protobuf.ByteString) ref).toStringUtf8();
-          zip_ = s;
-          return s;
-        } else {
-          return (String) ref;
+
+        static {
+            defaultInstance = new GetHistoricWeatherResponse(true);
+            defaultInstance.initFields();
         }
-      }
-      public Builder setZip(String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  bitField0_ |= 0x00000001;
-        zip_ = value;
-        onChanged();
-        return this;
-      }
-      public Builder clearZip() {
-        bitField0_ = (bitField0_ & ~0x00000001);
-        zip_ = getDefaultInstance().getZip();
-        onChanged();
-        return this;
-      }
-      void setZip(com.google.protobuf.ByteString value) {
-        bitField0_ |= 0x00000001;
-        zip_ = value;
-        onChanged();
-      }
-      
-      // optional uint32 temp = 2;
-      private int temp_ ;
-      public boolean hasTemp() {
-        return ((bitField0_ & 0x00000002) == 0x00000002);
-      }
-      public int getTemp() {
-        return temp_;
-      }
-      public Builder setTemp(int value) {
-        bitField0_ |= 0x00000002;
-        temp_ = value;
-        onChanged();
-        return this;
-      }
-      public Builder clearTemp() {
-        bitField0_ = (bitField0_ & ~0x00000002);
-        temp_ = 0;
-        onChanged();
-        return this;
-      }
-      
-      // @@protoc_insertion_point(builder_scope:com.twitter.finagle.protobuf.rpc.GetHistoricWeatherResponse)
-    }
     
-    static {
-      defaultInstance = new GetHistoricWeatherResponse(true);
-      defaultInstance.initFields();
+        // @@protoc_insertion_point(class_scope:com.twitter.finagle.protobuf.rpc.GetHistoricWeatherResponse)
     }
-    
-    // @@protoc_insertion_point(class_scope:com.twitter.finagle.protobuf.rpc.GetHistoricWeatherResponse)
-  }
   
  private static com.google.protobuf.Descriptors.Descriptor
     internal_static_com_twitter_finagle_protobuf_rpc_GetWeatherForecastRequest_descriptor;

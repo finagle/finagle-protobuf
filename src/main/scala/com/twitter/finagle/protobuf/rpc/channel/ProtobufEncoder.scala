@@ -1,5 +1,9 @@
 package com.twitter.finagle.protobuf.rpc.channel
 
+import com.google.protobuf.Message
+import org.jboss.netty.buffer.ChannelBuffers
+import org.jboss.netty.channel.{ChannelHandlerContext, Channel}
+import org.jboss.netty.handler.codec.oneone.OneToOneEncoder
 
 /**
  * Knows how to encode a ("doSomething()", ProtobufMessage) tuple.

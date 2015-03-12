@@ -1,5 +1,7 @@
 package com.twitter.finagle.protobuf.rpc
 
+import com.google.protobuf.{Message, RpcChannel, RpcController, Service}
+import com.twitter.finagle.builder.{ClientBuilder, ServerBuilder}
 import java.util.concurrent.ExecutorService
 
 trait RpcFactory {

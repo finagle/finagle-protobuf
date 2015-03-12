@@ -1,7 +1,6 @@
 package com.twitter.finagle.protobuf.rpc
 
-import org.specs.SpecificationWithJUnit
-import org.specs.mock.Mockito
+import org.specs2.mutable.SpecificationWithJUnit
 
 import org.junit.Assert._
 
