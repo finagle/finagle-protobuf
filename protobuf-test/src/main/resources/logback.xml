@@ -1,0 +1,37 @@
+<configuration debug='true' scan='true' scanPeriod='15 seconds'>
+
+    <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder>
+            <pattern>%date{dd MMM HH:mm:ss.SSS} %level [%thread] %logger{10} [%file:%line] %msg%n</pattern>
+        </encoder>
+    </appender>
+
+    <appender name='FILE' class='ch.qos.logback.core.rolling.RollingFileAppender'>
+        <file>logs/protobufTest.server.log</file>
+
+        <rollingPolicy class='ch.qos.logback.core.rolling.FixedWindowRollingPolicy'>
+            <fileNamePattern>logs/protobufTest.server.%i.log</fileNamePattern>
+            <minIndex>1</minIndex>
+            <maxIndex>13</maxIndex>
+        </rollingPolicy>
+
+        <triggeringPolicy class='ch.qos.logback.core.rolling.SizeBasedTriggeringPolicy'>
+            <maxFileSize>2MB</maxFileSize>
+        </triggeringPolicy>
+
+        <encoder>
+            <pattern>%date{dd MMM HH:mm:ss.SSS} %level [%thread] %logger{10} [%file:%line] %msg%n</pattern>
+        </encoder>
+    </appender>
+
+    <logger name='com.twitter.finagle.protobuftest.util.Slf4jStatsReceiver' level='INFO'/>
+
+    <root>
+        <level value='DEBUG'/>
+
+        <appender-ref ref='FILE'/>
+        <appender-ref ref='STDOUT'/>
+    </root>
+
+</configuration>
+

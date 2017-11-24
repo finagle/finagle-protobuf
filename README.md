@@ -11,6 +11,17 @@ This repository is the new home of `finagle-protobuf`, which used to be a
 [vacariuc]: https://github.com/george-vacariuc
 [pr91]: https://github.com/twitter/finagle/pull/91
 
+
+## Status
+
+This branch has WIP from the internal Tendril version of finagle-protobuf. It is being published herefor initial review purposes.
+
+At a minimum, the following work will likely need to be done before this is a candidate for merge:
+- [ ] Reconcile the builds and make sure this builds publicly
+- [ ] Determine and modify structure - we have two submodules but the published just has one and is a directory down
+- [ ] Update to appropriate finagle version
+- [ ] Make sure I've provided all the Tendril stuff and good examples to be usable and complete  
+
 ## License
 
 Licensed under the **[Apache License, Version 2.0](http://www.apache.org/licenses/LICENSE-2.0)** (the "License");

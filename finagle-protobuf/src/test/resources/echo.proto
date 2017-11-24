@@ -1,0 +1,16 @@
+package com.twitter.finagle.protobuf.test;
+
+option java_generic_services = true;
+
+service EchoService {
+    rpc Echo(EchoRequest) returns(EchoResponse);
+}
+
+message EchoRequest {
+    optional string phrase = 1;
+}
+
+message EchoResponse {
+    optional string error = 1;
+    optional string phrase = 2;
+}

@@ -1,0 +1,4 @@
+#!/usr/bin/env sh
+
+mkdir -p ../java/com/twitter/finagle/protobuf/test
+protoc --java_out=../java echo.proto
