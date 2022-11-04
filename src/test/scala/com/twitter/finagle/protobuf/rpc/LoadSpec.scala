@@ -7,7 +7,7 @@ import org.junit.Assert._
 import com.google.protobuf._
 import com.google.common.base._
 
-import com.twitter.util._
+import com.twitter.util.Duration
 import com.twitter.finagle.protobuf.rpc._
 import com.twitter.finagle.protobuf.rpc.impl._
 

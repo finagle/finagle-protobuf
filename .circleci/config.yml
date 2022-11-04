@@ -1,0 +1,60 @@
+version: 2.1
+executors:
+  docker-default:
+    docker:
+      - image: 'circleci/openjdk:8u222-jdk-stretch'
+orbs:
+  sbt: leoilab/sbt@1.0.0
+
+jobs:
+  deploy:
+    executor: docker-default
+    steps:
+      - attach_workspace:
+          at: ./
+      - run: ./scripts/circleci_creds.sh
+      - run: sbt -Dsbt.boot.credentials=credentials.properties publish
+  deploy-and-release:
+    executor: docker-default
+    steps:
+      - attach_workspace:
+          at: ./
+      - run: ./scripts/circleci_creds.sh
+      - run: sbt -Dsbt.boot.credentials=credentials.properties publish
+      - run: sbt -Dsbt.boot.credentials=credentials.properties release
+  test:
+    executor: docker-default
+    steps:
+      - checkout
+      - run: sbt coverage test
+      - persist_to_workspace:
+          root: .
+          paths:
+            - .
+workflows:
+  feature-branch-build:
+    when:
+      and:
+        - not:
+            equal: [ master, << pipeline.git.branch >> ]
+    jobs:
+      - test
+      - deploy:
+          context:
+            - artifactory-java
+          requires:
+            - test
+
+
+  master-build:
+    when:
+      and:
+        - equal: [master, << pipeline.git.branch >> ]
+    jobs:
+      - test
+      - deploy-and-release:
+          context:
+            - artifactory-java
+          requires:
+            - test
+

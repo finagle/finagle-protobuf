@@ -1,4 +1,9 @@
+.bsp
+.idea
+.metals
 target
 .classpath
 .project
 .settings
+.circleci/config_processed.yml
+credentials.properties
