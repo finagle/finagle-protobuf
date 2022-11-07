@@ -31,15 +31,15 @@ project: `./circleci_runner.sh`. This script assumes you have Docker
 (or Rancher Desktop) installed locally and you can run docker images.
 It also assumes you're running this in macOS.
 
-## In CircleCI
+### In CircleCI
 There are two workflows that are defined in this project's build.
 
-### feature-branch-build
+#### feature-branch-build
 The `feature-branch-build` is triggered when a non-master branch is pushed
 to the remote repo. This workflow runs unit tests and publishes a SNAPSHOT
 to JFrog for integration testing in DEV-US.
 
-### master-build
+#### master-build
 The `master-build` is triggered when a push to the master branch is detected.
 This workflow runs unit tests, performs the release and publish to JFrog
 tasks.
